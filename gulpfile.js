@@ -7,6 +7,12 @@ gulp.task("js", function() {
     .pipe(gulp.dest("./js/src"));
 });
 
+gulp.task("default", function() {
+  gulp.watch("*.js", function(e) {
+    console.log(e, "File " + e.path + " was " + e.type + ", running tasks...");
+  });
+});
+
 gulp.task("watch", function() {
   gulp.watch("./javatest.js", ["js"]);
 });
